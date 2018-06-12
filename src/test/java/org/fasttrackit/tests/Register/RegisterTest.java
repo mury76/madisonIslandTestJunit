@@ -15,6 +15,8 @@ public class RegisterTest extends TestBase {
 
     @Test
     public void registerWithValidData () {
+        RegisterFormSteps goToRegister = new RegisterFormSteps();
+        goToRegister.goToRegisterPage();
 
         String firsName = "Ciprian";
         String middleName = "Augustin";
@@ -32,6 +34,8 @@ public class RegisterTest extends TestBase {
 
     @Test
     public void registerWithDuplicatedEmail () {
+        RegisterFormSteps goToRegister = new RegisterFormSteps();
+        goToRegister.goToRegisterPage();
 
         String firsName = "Ciprian";
         String middleName = "Augustin";
@@ -47,16 +51,16 @@ public class RegisterTest extends TestBase {
         assertThat("Success message not displayed", successMsgContainer.isDisplayed());
 
         DriverFactory.getDriver().quit();
+
         DriverFactory.initDriver();
         DriverFactory.getDriver().get("https://fasttrackit.org/selenium-test/");
-        DriverFactory.getDriver().findElement(By.linkText("ACCOUNT")).click();
-        DriverFactory.getDriver().findElement(By.linkText("Register")).click();
+        goToRegister.goToRegisterPage();
 
         RegisterFormSteps registerSecondTime = new RegisterFormSteps();
         registerSecondTime.fillOutTheForm(firsName, middleName, lastName, emailAddress, password, confirmation);
 
-        WebElement failMsgContainer = DriverFactory.getDriver().findElement(By.className("success-msg"));
-        assertThat("Success message not displayed", failMsgContainer.isDisplayed());
+        WebElement errorMsgContainer = DriverFactory.getDriver().findElement(By.className("error-msg"));
+        assertThat("Error message not displayed", errorMsgContainer.isDisplayed());
 
 
     }

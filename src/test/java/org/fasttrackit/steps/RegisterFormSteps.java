@@ -2,6 +2,7 @@ package org.fasttrackit.steps;
 
 import org.fasttrackit.DriverFactory;
 import org.fasttrackit.webviews.RegisterFormPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 public class RegisterFormSteps {
@@ -20,6 +21,11 @@ public void fillOutTheForm (String firstName, String middleName, String lastName
     registerFormPage.getSubscribeCheckButton().click();
     registerFormPage.getRegisterButton().click();
 
+}
+
+public void goToRegisterPage() {
+    DriverFactory.getDriver().findElement(By.linkText("ACCOUNT")).click();
+    DriverFactory.getDriver().findElement(By.linkText("Register")).click();
 }
 
 }

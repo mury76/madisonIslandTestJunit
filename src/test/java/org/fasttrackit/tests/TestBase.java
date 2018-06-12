@@ -11,8 +11,6 @@ public class TestBase {
     public void setup() {
         DriverFactory.initDriver();
         DriverFactory.getDriver().get("https://fasttrackit.org/selenium-test/");
-        DriverFactory.getDriver().findElement(By.linkText("ACCOUNT")).click();
-        DriverFactory.getDriver().findElement(By.linkText("Register")).click();
     }
 
     @After
