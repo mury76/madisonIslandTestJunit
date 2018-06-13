@@ -29,9 +29,7 @@ public class RegisterFormPage {
     @FindBy(css = "button[title='Register']")
     private WebElement registerButton;
 
-    public void completeFirstName (String firstName) {
-        firstNameField.sendKeys(firstName);
-    }
+
 
     public WebElement getFirstNameField() {
         return firstNameField;

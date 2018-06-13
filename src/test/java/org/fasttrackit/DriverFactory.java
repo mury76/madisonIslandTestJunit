@@ -14,6 +14,7 @@ public class DriverFactory {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        DriverFactory.getDriver().get("https://fasttrackit.org/selenium-test/");
     }
 
     public static WebDriver getDriver() {
