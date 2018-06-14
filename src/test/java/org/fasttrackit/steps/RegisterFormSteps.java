@@ -10,6 +10,7 @@ public class RegisterFormSteps {
     public void goToRegisterPage() {
         DriverFactory.getDriver().findElement(By.linkText("ACCOUNT")).click();
         DriverFactory.getDriver().findElement(By.linkText("Register")).click();
+        System.out.println("Navigated to Register page");
     }
 
     public void fillOutTheRegisterForm(String firstName, String middleName, String lastName, String emailAddress,
@@ -24,7 +25,9 @@ public class RegisterFormSteps {
         registerFormPage.getPasswordField().sendKeys(password);
         registerFormPage.getConfirmationField().sendKeys(confirmation);
         registerFormPage.getSubscribeCheckButton().click();
+        System.out.println("Performed actions on given fields");
         registerFormPage.getRegisterButton().click();
+        System.out.println("Clicked the Register button");
     }
 
 }
